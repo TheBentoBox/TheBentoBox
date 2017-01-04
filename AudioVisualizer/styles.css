@@ -1,0 +1,98 @@
+/* General page layout */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: 'Roboto', tahoma, verdana, sans serif;
+}
+#headerCanvas, header {
+	z-index: 5;
+}
+#leftColumn {
+	width: 60%;
+	float: left;
+	padding: 15px;
+}
+#rightColumn {
+	position: absolute;
+	right: 0;
+	float: right;
+	width: 40%;
+	height: 100%;
+	z-index: -1;
+}
+
+/* Canvas and control objects */
+audio {
+	float: left;
+	margin-right: 25px;
+}
+label {
+	margin: 0 10px;
+	float: left;
+	display: block;
+}
+button {
+	margin-left: 10px;
+}
+#canvas {
+	float: left;
+	margin: 10px 5px 5px 10px;
+	box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+	background: black;
+	background-image: url('media/default.png');
+	background-size: cover;
+}
+
+/* IDs */
+#palette {
+	margin-left: 10px;
+}
+#circleSelector {
+	margin-left: 10px;
+	background: gray;
+}
+#gradientSelector {
+	margin: 10px 0 0 -5px;
+	float: left;
+	background: gray;
+	box-shadow: inset -5px 0 10px rgba(0, 0, 0, .5);
+}
+#controls {
+	clear: both;
+	margin: 10px;
+}
+#smallCircleButton,#mediumCircleButton,#largeCircleButton {
+	margin: 10px 0 -20px 0;
+	position: relative;
+	left: 10px;
+}
+#leftColumn strong {
+	margin-left: 8px;
+}
+#controls p, #controls strong {
+	margin-left: 0;
+	padding-top: 5px;
+	clear: both;
+}
+#averageSlider, #maxRadSlider, #delaySlider {
+	float: right;
+}
+#options {
+	width: 60%;
+}
+#options p {
+	margin-top: 10px;
+}
+
+/* LINKS */
+a:link {
+	text-decoration: none;
+	color: rgb(100, 100, 255);
+}
+a:visited{
+	text-decoration: none;
+	color: rgb(100, 125, 150);
+}

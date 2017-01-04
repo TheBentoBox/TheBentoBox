@@ -1,0 +1,54 @@
+<section class="projMedia">
+	<h1>Lumina</h1>
+	<h2>
+		<a href="Lumina/lumina.html">
+			<i class="icon fa fa-gamepad fa-lg" aria-hidden="true"></i>
+			Play Lumina
+		</a>
+		<a target="_blank" href="https://github.com/TheBentoBox/Lumina">
+			<i class="icon fa fa-github fa-lg" aria-hidden="true"></i>
+			View the source
+		</a>
+	</h2>
+	<p id="prevImgButton">&#9664;</p>
+	<p id="nextImgButton">&#9654;</p>
+	<img id="gallery" src="media/lumina/lumina1.png" alt="Gameplay image of Lumina." width="750" height="375" data-href="lumina" data-maxImg="5" />
+</section>
+
+<section class="projDescription">
+	<h3>Description & Project Role</h3>
+	<p>
+		<em>Lumina</em> is a 2D sidescroller created in 5 weeks. The player can cast spells to defeat enemies and can capture checkpoints as they
+		explore the world. I acted as the lead gameplay programmer and engine developer.
+	</p>
+	<br />
+
+	<h3>Technical Overview & My Contribution</h3>
+	<p>
+		<em>Lumina</em> was created in Javascript using canvas. It uses no pre-defined engine - I coded all gameplay behaviors from scratch.
+		The most programmatically complicated aspect of the game is the lighting engine, which uses canvas composite operations. The game screen
+		is first drawn normally to an offscreen canvas. It is then copied to the onscreen canvas, and is masked with a black overlay. Then, light sources
+		are cut out from the destination canvas silhouette. After that, the original colored image is placed below the silhouette, the sky background is
+		placed below everything, and then post-process draw calls are made.
+	</p>
+	<br />
+	<p>
+		Because of the complexity of the lighting and parallaxes, the game can have performance issues on some browsers. If I were to do the project over, it
+		would be in WebGL for optimum performance.
+	</p>
+	<br />
+
+	<h3>Mechanics & Design</h3>
+	<p>
+		Almost everything in the game world is porytrayed as a near pitch black silhouette. The player character is a wizard whose spells can damage enemies
+		and cast light upon objects, temporarily revealing them. The design of the world relies largely on the ambience created by the colors and lighting.
+		Players prepare spells in two parts. The first selection is of the spell type - bolt, rune, or grenade. Bolts are weaker with long range, runes lay down
+		a trap on the ground, and grenades are much slower but do an AOE blast of heavy damage.
+	<p>
+	<br />
+	</p>
+		Each spell type can also be one of three elements - fire, water, and earth. Due to the short development time of the project, there isn't much difference
+		between the elements. Fire spells do additional burn damage over time, earth spells do the most damage but are the heaviest, and water spells do the least
+		damage, but are the lightest.
+	</p>
+</section>

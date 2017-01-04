@@ -1,0 +1,38 @@
+<section class="projMedia">
+	<h1>Audio Visualizer</h1>
+	<h2>
+		<a href="AudioVisualizer/audioVisualizer.html">
+			<i class="icon fa fa-music fa-lg" aria-hidden="true"></i>
+			Use the visualizer
+		</a>
+	</h2>
+	<video autoplay loop src="media/audioVisualizer/audioVisualizer1.mp4" alt="Video of the visualizer playing Rainbow Road." />
+</section>
+
+<section class="projDescription">
+	<h3>Description & Project Role</h3>
+	<p>
+		The audio visualizer is a web app that streams three songs (which I chose) and visualizes them onscreen. It was a solo project, so I did
+		all of the programming.
+	</p>
+	<br />
+
+	<h3>Technical Overview & My Contribution</h3>
+	<p>
+		The visualizer uses the HTML5 web audio API to stream the songs from file and display their waveform data on screen. I don't feed the data
+		directly onto the screen - I applied a small exponential formula to the numbers returned from the audio stream to make the movement of the
+		bars more pronounced. The bars are drawn via a linear gradient which is created based on the gradient editor to the right of the canvas. I
+		store the overall volume of the stream each frame, and if it increases by at least 10% over the previous frame, the visualizer releases a colored
+		pulse; the pulse colors loop through the colors of the current gradient. This makes the visualization appear to pulse with the beat of the music.
+	</p>
+	<br />
+
+	<h3>What I Learned</h3>
+	<p>
+		The audio visualizer was my first extensive experience with JavaScript and canvas, which I greatly appreciate because I have come to love
+		them both. It was particularly useful because of the amount of customization I added to the visualizer. It gave me a lot of experiencing connecting
+		DOM elements and canvas mouse interactions with the canvas itself. The visualization uses three canvases apart from the main one, and nine
+		separate page elements that can further manipulate it.
+	<p>
+	<br />
+</section>

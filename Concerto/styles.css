@@ -1,0 +1,135 @@
+/* Page-wide settings */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	min-height: 100%;
+}
+body {
+	min-height: 100%;
+	background: rgb(50, 50, 50);
+}
+h1 {
+	font-size: 2em;
+	margin-bottom: 5px;
+}
+h1, h2, h4, span {
+	font-family: 'Quattrocento Sans', Arial;
+	color: white;
+}
+span {
+	white-space: pre;
+}
+p {
+	font-family: Raleway, Calibri;
+}
+article {
+	width: 72%;
+	padding: 2%;
+	min-height: 100%;
+	margin-left: 14%;
+	position: absolute;
+	background-color: black;
+	box-shadow: 0px 0px 50px black;
+}
+#wrapper {
+	padding: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+#title {
+	font-size: 5em;
+	font-family: 'Rochester', 'Quattrocento Sans', Arial;
+}
+#useLoc {
+	position: relative;
+	top: 2px;
+}
+
+/* Anchors/Links */
+.column a:link, .column a:visited {
+	color: rgb(255, 120, 160);
+}
+a:link, a:visited, .concertResult a:link, .concertResult a:visited {
+	color: rgb(190, 15, 50);
+	text-decoration: none;
+	font-weight: bold;
+}
+a:hover, .concertResult a:hover {
+	color: rgb(220, 60, 100);
+	text-decoration: underline;
+	font-weight: bold;
+}
+.search p a#return {
+	color: rgb(255, 120, 160);
+	text-decoration: none;
+	font-weight: bold;
+}
+
+/* The search box */
+#search-form {
+    margin: 15px;
+}
+
+/* Settings for concert results once they're loaded */
+.concertResult {
+	font-family: 'Raleway';
+	border: 1px solid black;
+	margin: 2px 0 5px 0;
+	padding: 5px;
+	background: rgba(255, 255, 255, 0.65);
+	margin: 0.5%;
+}
+.concertResult h3 {
+	margin-bottom: 2px;
+}
+
+/* Settings for album covers once they're loaded */
+.cover {
+	float: right;
+    display: inline-block;
+    background-size: cover;
+	margin: 0.5%;
+}
+.cover:hover {
+    cursor: pointer;
+}
+.cover.playing {
+    border: 5px solid rgb(225, 60, 100);
+}
+
+/* Search div */
+.search {
+	margin-top: 20%;
+	text-align: center;
+}
+
+/* Makes objects include sizes of floats */
+.left:after, .right:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Two-column layout of results */
+.column  {
+	opacity: 0;
+	width: 49%;
+	height: 100%;
+	padding: 1%;
+	display: inline-block;
+	background: rgb(125, 125, 125);
+	margin-top: 35px;
+}
+.right {
+	float: right;
+}
+.right h1 {
+	margin-right: 10px;
+	text-align: right;
+}

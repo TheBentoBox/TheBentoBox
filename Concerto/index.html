@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Concerto</title>
+		<link rel="icon" type="image/png" href="icon.png" sizes="32x32" />
+		<link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<link href='styles.css' rel='stylesheet' type='text/css'>
+		
+		<script>
+			/*
+			CREDITS:
+			A portion of the code to load Spotify albums from their API was from this jsfiddle: http://jsfiddle.net/JMPerez/0u0v7e1b/
+			The main code portions from there that are still in use are the fetchTracks, and the section with
+			results.addEventListener to make tracks play on click. The actual entire loading of tracks onto the
+			page from the results was redone by me, because the old version was dependent on Handlebars.js. I
+			also read through the entire code and commented it - both since it was uncommented, and so I made sure
+			I understood what it was doing (instead of just haphazardly using code snippets I didn't understand).
+			*/
+			'use strict';
+			// Global App
+			var app = {};
+			
+			app.main = function(){
+				// Variables
+				// whether or not to use location for distance
+				var useLocation = false;
+				// user's stored location
+				var loc = { lat: 0, lng: 0 };
+				
+				// Setup on load
+				window.onload = function() {
+					//== MAIN VARIABLES ==//
+					// The left column, displaying results of concert searches
+					var concertResults = document.getElementById('concertResults');
+					// The right column, displaying albums which can be blicked for song previews
+					var songResults = document.getElementById('songResults');
+					// An audio object, for playing the album previews
+					var audioObject = new Audio();
+					// Put cursor in textbox
+					$('.form-control').focus();
+
+					// Make checkbox toggle location tracking
+					document.querySelector('#useLoc').addEventListener('change', toggleLoc);
+				
+					// Gets an album preview from Spotify and calls its callback function
+					var fetchTracks = function (albumId, callback) {
+						$.ajax({
+							url: 'https://api.spotify.com/v1/albums/' + albumId,
+							success: function (response) {
+								callback(response);
+							}
+						});
+					};
+
+					// Use ajax and getJSON requests to load concerts and song previews
+					var searchArtist = function (query) {
+						// Bandsintown tries to correct the artist name while Spotify doesn't
+						// A misspelled artist name may show results for concerts but not for albums
+						// We'll attempt to search for Bandsintown's returned artist instead of it's different
+						var fixedArtist = query;
+						audioObject.pause();
+						
+						// Bandsintown API retrieval - Spotify is inside
+						$.getJSON("https://api.bandsintown.com/artists/" + query + "/events.json?callback=?&app_id=Concerto",
+							function(response) {
+								// Refresh the results list
+								concertResults.innerHTML = "<h1>Upcoming Events</h1>";
+								
+								// Catch if there are no concerts found or there's an error
+								if (response.length === 0 || response.length === undefined || response.errors != undefined) {
+									concertResults.innerHTML = "<p>That artist has no upcoming events.</p>";
+									
+									// Fade sidebar in
+									$('#concertResults').animate({opacity: 1}, 200);
+									
+									// Set the height to now scale with the number of concerts instead of the number of albums
+									$('#concertResults').height("auto");
+								}
+								// if there are results
+								else {
+									// Append initial 'results found' text
+									concertResults.innerHTML += "<h2>" + response.length + " events found for artist <a href='" + response[0].artists[0].url + "'>" + response[0].artists[0].name + "</a>...</h2>";
+									fixedArtist = response[0].artists[0].name;
+									
+									// Set the height to now scale with the number of concerts instead of the number of albums
+									$('#concertResults').height("auto");
+									
+									var resultsHTML = [];
+									
+									// Loop through and display them
+									for (var i = 0; i < response.length; ++i) {
+										// Get that event
+										var e = response[i];
+										
+										//== Generate an HTML element string ==//
+										// Base div with lat/lng data for later locational reference
+										resultsHTML[i] = "<div class='concertResult' data-latitude='" + e.venue.latitude + "' data-longitude='" + e.venue.longitude + "'>";
+										// event page and event's venue's page on Bandsintown
+										resultsHTML[i] += "<h3><a href='" + e.venue.url + "'>Venue Page</a> • ";
+										resultsHTML[i] += "<a href='" + e.url + "'>Event Page</a></h3>"
+										// name of venue - many venues include the event name, we splice this out
+										var venName = e.venue.name;
+										var index = venName.indexOf(" - ");
+										if (index != -1)
+											venName = venName.slice(index + 2);
+										resultsHTML[i] += "<p><strong>Venue Name:</strong> " + venName + "</p>";
+										
+										// Location, handle differently for country codes, states, etc.
+										// add city name
+										resultsHTML[i] += "<p><strong>Location:</strong> " + e.venue.city;
+										// add region for states, otherwise skip for region codes
+										if (e.venue.region && e.venue.region.length === 2)
+											// check both chars of the region individually, e.g. for region A7)
+											if (isNaN(parseInt(e.venue.region[0])) && isNaN(parseInt(e.venue.region[1])))
+												resultsHTML[i] += " " + e.venue.region;
+										// add country
+										if (e.venue.country) resultsHTML[i] += ", " + e.venue.country + "</p>";
+										
+										// Datetime
+										// fix the datetime
+										var datetimeFixed = new Date(e.datetime.replace("T", " "));
+										var dateString = String(datetimeFixed);
+										// format it a bit
+										dateString = dateString.slice(0, dateString.indexOf(":") - 2);
+										dateString = dateString.replace(" ", ", ");
+										dateString += ", " + (datetimeFixed.getHours() > 12 ? (datetimeFixed.getHours() - 12) + ":" : datetimeFixed.getHours() + ":");
+										dateString += (String(datetimeFixed.getMinutes()).length > 1 ? datetimeFixed.getMinutes() : "0" + datetimeFixed.getMinutes());
+										dateString += (datetimeFixed.getHours() > 12 ? "PM" : "AM");
+										resultsHTML[i] += "<p><strong>Date:</strong> " + dateString + "</p>";
+										
+										// Ticket status
+										resultsHTML[i] += "<p><strong>Tickets:</strong> <a href='" + e.ticket_url + "'>" + e.ticket_status + "</a></p>";
+										resultsHTML[i] += "</div>";
+										
+										// Convert the string to an HTML element
+										var div = document.createElement("div");
+										div.innerHTML = resultsHTML[i];
+										resultsHTML[i] = div.firstChild;
+									};
+									
+									// Sort results by distance if user has location enabled
+									if (useLocation)
+										resultsHTML.sort(sortEvents);
+											
+									// Append the results
+									resultsHTML.forEach(function(e, i, arr) { concertResults.appendChild(e); });
+									
+									// Fade sidebar in
+									$('#concertResults').animate({opacity: 1}, 200);
+								}
+								
+								// Spotify API retrieval
+								// We do this inside the getJSON so we guarantee
+								// fixedArtist has had a chance to adjust
+								if (fixedArtist.length > 0)
+									$.ajax({
+										url: 'https://api.spotify.com/v1/search',
+										data: {
+											q: fixedArtist,
+											type: 'album'
+										},
+										success: function (response) {
+											// Refresh the albums results list
+											songResults.innerHTML = "<h1>(click to play) Album Previews</h1>";
+											// Grab the albums list from the response
+											var albums = response.albums.items;
+											
+											// Catch if there are no albums found
+											if (albums.length === 0) {
+												songResults.innerHTML = "<p>There were no albums found matching your search.</p>"
+												
+												// Fade sidebar in
+												$('#songResults').animate({opacity: 1}, 200);
+											}
+											// if there are results
+											else {
+												// Set the height to now scale with the number of concerts instead of the number of albums
+												$('#songResults').height("auto");
+												
+												// Loop the albums and display each one
+												for (var i = 0; i < albums.length; ++i) {
+													// Generate HTML element
+													var resultsHTML =  "<div style='background-image:url(";
+													// Give default image if none is provided
+													if (albums[i].images[0])
+														resultsHTML += albums[i].images[0].url + ")' ";
+													else
+														resultsHTML += "default.png)' ";
+														resultsHTML += "data-album-id='" + albums[i].id + "' ";
+														resultsHTML += "class='cover'></div>";
+														
+													// Append the result
+													songResults.innerHTML += resultsHTML;
+												}
+												
+												// Resize covers
+												resizeCovers();
+											}
+										},
+										error: function() {
+											songResults.innerHTML = "<p>There were no albums found matching your search.</p>"
+										}
+									});
+								else {
+									songResults.innerHTML = "<p>There were no albums found matching your search.</p>"
+								}
+								
+								// Fade sidebar in
+								$('#songResults').animate({opacity: 1}, 200);
+							});
+					};
+					
+					// Set each album to play a preview on click
+					songResults.addEventListener('click', function (e) {
+						// Get the clicked object
+						var target = e.target;
+						// If the clicked object was a cover
+						if (target !== null && target.classList.contains('cover')) {
+							// Toggle playing of music if it was already playing
+							if (target.classList.contains('playing')) {
+								audioObject.pause();
+							}
+							else {
+								// Pause the current audio
+								if (audioObject) {
+									audioObject.pause();
+								}
+								// Get the preview from Spotify based on the album ID
+								fetchTracks(target.getAttribute('data-album-id'), function (data) {
+									// Create the new audio object and play it
+									audioObject = new Audio(data.tracks.items[0].preview_url);
+									audioObject.play();
+									// Tell the cover that it is now playing
+									target.classList.add('playing');
+									// Add callbacks for when the audioObject ends/pauses to remove the
+									// playing class from the targeted album cover object
+									audioObject.addEventListener('ended', function () {
+										target.classList.remove('playing');
+									});
+									audioObject.addEventListener('pause', function () {
+										target.classList.remove('playing');
+									});
+								});
+							}
+						}
+					});
+
+					// Handle once the search box is submitted
+					document.getElementById('search-form').addEventListener('submit', function (e) {
+						// Prevent default actions
+						e.preventDefault();
+						
+						// Play search sound effect
+						playStream("bingBong.mp3", 1);
+						
+						// Slide search bar to top of screen and hide site title
+						$('.search').animate({marginTop: "0%"}, 500);
+						$('#title').animate({opacity: 0}, 250).animate({height: 0}, 200).hide();
+						// Send the query to the APIs
+						searchArtist(document.getElementById('query').value);
+					}, false);
+				};
+
+				// Update useLoc on checkbox toggle and get location
+				function toggleLoc() {
+					useLocation = document.querySelector('#useLoc').checked;
+					
+					// Get location if it's now enabled
+					if (useLocation) {
+						// If the location get passes
+						function locSuccess(position) {
+							loc = {lat: position.coords.latitude, lng: position.coords.longitude};
+						}
+						// If the get fails/times out
+						function locFail() {
+							alert("Sorry, the position was not available.");
+						}
+						// Get options
+						var locOptions = {
+							enableHighAccuracy: true, 
+							maximumAge        : 30000, 
+							timeout           : 27000
+						};
+						
+						// Get the location
+						navigator.geolocation.getCurrentPosition(locSuccess, locFail, locOptions);
+						
+						/*
+						// Resort results by distance
+						// get the results
+						var concertNodeList = document.querySelectorAll('.concertResult');
+						// convert to an array (easier foreaching)
+						var concerts = [];
+						for (var i = 0; i < concertNodeList.length; ++i) concerts[i] = concertNodeList[i];
+						// remove them
+						concerts.forEach(function(e, i, arr) { e.remove(); });
+						// resort them
+						concerts.sort(sortEvents);
+						// re-append the results
+						concerts.forEach(function(e, i, arr) { concertResults.appendChild(e); });
+						*/
+					}
+				}
+			
+				// Helper to play a sound effect
+				function playStream(source, vol) {
+					var audioPlayer = new Audio(source);
+					audioPlayer.volume = vol;
+					audioPlayer.play();
+				}
+		
+				// Sorts the events by distance from the user
+				function sortEvents(a, b) {
+					// Get lat/long of each event
+					var aLat = a.getAttribute('data-latitude'); var aLng = a.getAttribute('data-longitude');
+					var bLat = b.getAttribute('data-latitude'); var bLng = b.getAttribute('data-longitude');
+					
+					// Get distance
+					var aDistance = distanceToMiles(aLat, aLng, loc.lat, loc.lng).toFixed(2);
+					var bDistance = distanceToMiles(bLat, bLng, loc.lat, loc.lng).toFixed(2);
+					
+					// Append distance info to elements if it hasn't been already
+					if (a.innerHTML.indexOf("<strong>Distance") === -1)
+						a.innerHTML += "<p><strong>Distance:</strong> " + aDistance + " miles</p>";
+					if (b.innerHTML.indexOf("<strong>Distance") === -1)
+						b.innerHTML += "<p><strong>Distance:</strong> " + bDistance + " miles</p>";
+					
+					// Return larger
+					return aDistance - bDistance;
+				}
+				
+				// Add a remove() to elements to make them easier to delete
+				Element.prototype.remove = function() {
+					this.parentElement.removeChild(this);
+				}
+				
+				// Gets distance between two latitudes and longitudes
+				// From: https://www.geodatasource.com/developers/javascript
+				// Modified slightly to fit the needs of this program better
+				function distanceToMiles(lat1, lng1, lat2, lng2) {
+					var radlat1 = Math.PI * lat1/180;
+					var radlat2 = Math.PI * lat2/180;
+					var radlng1 = Math.PI * lng1/180;
+					var radlng2 = Math.PI * lng2/180;
+					var theta = lng1 - lng2;
+					var radtheta = Math.PI * theta/180;
+					var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+					dist = Math.acos(dist);
+					dist *= 180/Math.PI;
+					dist *= 60 * 1.1515;
+					return dist;
+				}
+
+				// Scale objects for responsive design
+				window.addEventListener("resize", resizeCovers);
+				function resizeCovers() {
+					// Get all album covers
+					var covers = document.querySelectorAll('.cover');
+					// Get the width of a column
+					var colWidth = document.querySelector('.column').clientWidth;
+					
+					// Loop and assign height and width
+					for (var i = 0; i < covers.length; ++i) {
+						covers[i].style.width = (colWidth * 0.46) + "px";
+						covers[i].style.height = (colWidth * 0.46) + "px";
+					}
+				}
+			}();
+		</script>
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<article>
+				<div class="search">
+					<h1 id="title">Concerto</h1>
+					<h1>Discover music.</h1>
+					<h2>Search for an artist to begin.</h2>
+					<p><a id="return" href="../index.html">Return to my portfolio</a></p>
+					<form id="search-form">
+					<input type="text" autocomplete="off" maxlength="32" id="query" value="" class="form-control" placeholder="Type an artist's name"/>
+					<input type="submit" id="search" value="Search" />
+				</form>
+					<span>Sort Results By Distance  <input type='checkbox' id='useLoc' name='useLoc'></span>
+				</div>
+			
+				<div class="column" id="concertResults"></div>
+				<div class="column right" id="songResults"></div>
+			</article>
+		</div>
+	</body>
+</html>

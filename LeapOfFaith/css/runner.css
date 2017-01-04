@@ -1,0 +1,23 @@
+body {
+	margin: auto;
+	width: 1280px;
+    background: #050505;
+    font-family: verdana, sans serif;
+	color: #eee;
+}
+
+#return {
+	margin-top: 335px;
+	font-family: 'Uncial Antiqua', cursive;
+	font-size: 20pt;
+}
+
+#canvas {
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+    background: black;
+	margin-bottom: 2%;
+}
+
+audio {
+	display: none;
+}

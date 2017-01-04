@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Jake Ben-Tovim: Audio Visualizer</title>
+	
+	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="styles.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="../styles.css" />
+	
+	<script src="visualizer.js"></script>
+	<script src="../js/scrollUpdate.js"></script>
+	<script src="../js/headerStarsSub.js"></script>
+</head>
+<body>
+	<canvas id="headerCanvas" width="0" height="325px">
+		Your browser doesn't support canvases, which means it's really outdated - consider updating to view my portfolio as it's meant to be seen! : )
+	</canvas>
+	<header>
+		<p><strong>Jake</strong> Ben-Tovim<p>
+		<h2>Programmer & Designer</h2>
+	</header>
+	
+	<div id="banner">
+		<p><strong>Jake</strong> Ben-Tovim<p>
+	</div>
+		
+	<article id="leftColumn">
+		<h2 id="return"><a href="../index.html">Return to portfolio</a></h2>
+		<h1 id="status">Loading song...</h1>
+		<canvas id="canvas" width="840" height="525"></canvas>
+		<canvas id="gradientSelector" width="60" height="525"></canvas>
+		<p><strong>Color Palette</strong></p>
+		<canvas id="palette" width="174" height="187" title="Color palette, changes color of selected object"></canvas><br />
+		<p><strong>Circle Customizer</strong></p>
+		<canvas id="circleSelector" width="170" height="170" title="Circle customizer, changes color of center circles"></canvas>
+		<br />
+		<button id="newColorTab" title="Adds a new colored tab to the gradient panel to the left <-">Add Color Tab</button>
+		<button id="fsButton">Go Full Screen</button><br />
+		
+		<div id="controls">
+			<audio controls loop></audio>
+			<label><strong>Track</strong>: 
+				<select id="trackSelect" title="Changes the current song">
+					<option value="media/Rainbow Road.mp3">Rainbow Road</option>
+					<option value="media/Red Right Hand.mp3">Red Right Hand</option>
+					<option value="media/The Circle of Life.mp3">The Circle of Life</option>
+				</select>
+			</label>
+			<label><strong>Presets</strong>: 
+				<select id="presetSelect" title="A few preset color schemes">
+					<option value="rainbow" title="Goes best with 'Rainbow Road' track">Rainbow</option>
+					<option value="redHanded" title="Goes best with 'Red Right Hand' track">Red Handed</option>
+					<option value="pridelands" title="Goes best with 'The Circle of Life' track">Pridelands</option>
+				</select>
+			</label>
+			<p>Background URL: <input id="backgroundSelector" type="text" title="Enter a direct image URL to change the background of the visualizer"></p>
+		</div>
+	</article>
+	
+	<article id="rightColumn">
+		<h2>Info</h2>
+		<p>Customize the visualizer by selecting (clicking) on one of the colored tabs in the right visualizer panel, or one of the circles in the panel below the color palette. You can change the color of the selected object with the color palette. The color tabs can also be dragged up and down the panel to further modify the gradient. Right click a tab to delete it. The currently selected tab or circle will be indicated by the black arrow.</p><br/>
+		<p>The background URL input needs a direct link to the image (not just the page it's on). If you put in a URL and it just looks black, try right clicking the image and clicking "Copy image URL", then pasting that in the text box.</p>
+		<br />
+		<h2>Options</h2>
+			<div id="options">
+				<p><strong>Smoothness</strong>: <input id="averageSlider" type="range" value="0.8" min="0.65" max="0.95" step="0.01" title="Changes the smoothness of the lines/bars in the visualizer"/></p>
+				<p><strong>Echo Delay</strong>: <input id="delaySlider" type="range" value="0" min="0" max="1" step="0.05" title="Applies an echo to the track with a 0 to 1 second delay"/></p>
+				<p><strong>Circle Radius</strong>: <input id="maxRadSlider" type="range" value="200" min="5" max="395" step="1" title="Changes the radius of the circles in the center"/></p>
+				<p><input type="checkbox" id="waveformBox" name="waveformBox" value="waveformBox" title="Uses waveform data for the visualizer waves instead of frequency data">Use Waveform</input></p>
+				<br />
+				<br />
+			</div>
+		<h3>Filters</h3>
+			<input type="checkbox" id="tintRedBox" name="tintRed" value="tintRed" title="Applies a red tint to the visualizer">Tint Red</input><br />
+			<input type="checkbox" id="invertBox" name="invert" value="invert" title="Invert the colors of the canvas">Invert</input><br />
+			<input type="checkbox" id="grayscaleBox" name="grayscale" value="grayscale" title="Makes the visualization black and white (not the background)">Grayscale</input><br />
+			<input type="checkbox" id="alphaSwapBox" name="alphaSwap" value="alphaSwap" title="Swaps the red value of each color with its alpha value, and swaps the green with the blue">Alpha Swap</input><br /><br />
+			<p>Default background from <a href="http://www.motionbackgroundsforfree.com/">Motion Backgrounds For Free</a>.</p>
+			<p>Rainbow Road from <a href="https://www.youtube.com/watch?v=a0Aauep0VWs">Monstercat</a>.</p>
+			<p>Red Right Hand by <a href="http://www.arcticmonkeys.com/">Arctic Monkeys</a>.</p>
+			<p>The Circle of Life from <a href="https://www.youtube.com/watch?v=GibiNy4d4gc">Disney's Lion King</a>.</p>
+	</article>
+	<div id='globalGradient'></div>
+</body>
+</html>
