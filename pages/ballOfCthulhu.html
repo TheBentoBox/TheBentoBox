@@ -12,19 +12,21 @@
 <section class="projDescription">
 	<h3>Description & Project Role</h3>
 	<p>
-		Shetland Engine is a simple 3D game engine created over as a side project over the course of a semester. I was one of only two programmers to work
-		on the code, and was the one who pieced together the engine and its activity flow.
+		Shetland Engine is a simple 3D game engine created over the course of a semester. I was one of only two programmers to work
+		on the code, and was the one who pieced together the engine and its activity flow: we had all of the individual sections of the engine
+		prepared through separate assignments, and I brought them all together and made them work as a single engine, which included the
+		creation of overarching GameManager and WindowManager classes to handle everything.
 	</p>
 	<br />
 
 	<h3>Technical Overview & My Contribution</h3>
 	<p>
-		Shetland is programmed entirely in C++, with graphics powered by OpenGL. It utilizes GLEW, GLFW, SOIL, and GLM. GLFW is used to create windows and
+		Shetland is programmed in C++, with graphics powered by OpenGL. It utilizes GLEW, GLFW, SOIL, and GLM. GLFW is used to create windows and
 		recognize keyboard input, SOIL is used for texture loading, and GLM is used for its various data structures (namely vec3's and mat4's) which control game
 		object positions in the world, and the code required for camera projections and world rendering. Engine functionality is split up amongst a GameManager and
 		a WindowManager. The GameManager controls the main game tick, the spawning of game objects, and the loading of meshes. Meshes are stored in a hash
-		map, and are only ever loaded once even if multiple objects use the same mesh. The WindowManager controls screen rendering and input. GameObjects use
-		OBBs for collision detection.
+		map, and are only ever loaded once even if multiple objects use the same mesh by mapping a mesh object to a string representing its file path. The 
+		WindowManager controls screen rendering and user input. GameObjects use OBBs for collision detection.
 	</p>
 	<br />
 	<p>
@@ -36,7 +38,7 @@
 	<h3>Mechanics & Design</h3>
 	<p>
 		The GIF shows an example of a shooting gallery created within Shetland Engine, which we lovingly refer to as <em>The Ball of Cthulhu</em>. You look around
-		and throw rocks at the various cthulhus to banish them back from whence they game. The cthulhus spin and twirl to their heart's content, making them fairly
+		and throw rocks at the various Cthulhus to banish them back from whence they came. The Cthulhus spin and twirl to their heart's content, making them fairly
 		difficult and frustrating to hit. Each hit scores you a point, which is logged in the console window that is kept open simultaneously along with the game.
 	<p>
 	<br />
