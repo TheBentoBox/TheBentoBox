@@ -905,38 +905,38 @@ game.engine = (function(){
 			
 		//== Biome Assets //{
 		// Clearing
-		BIOME.CLEARING.environmentImgs[1] = preloadImageNoCanvas("assets/SceneryClearing1.png");
-		BIOME.CLEARING.environmentImgs[2] = preloadImageNoCanvas("assets/SceneryClearing2.png");
-		BIOME.CLEARING.environmentImgs[4] = preloadImageNoCanvas("assets/SceneryClearing4.png");
-		BIOME.CLEARING.environmentImgs[5] = preloadImageNoCanvas("assets/SceneryClearing5.png");
+		BIOME.CLEARING.environmentImgs[1] = preloadImageNoCanvas("assets/sceneryclearing1.png");
+		BIOME.CLEARING.environmentImgs[2] = preloadImageNoCanvas("assets/sceneryclearing2.png");
+		BIOME.CLEARING.environmentImgs[4] = preloadImageNoCanvas("assets/sceneryclearing4.png");
+		BIOME.CLEARING.environmentImgs[5] = preloadImageNoCanvas("assets/sceneryclearing5.png");
 		// Forest
-		BIOME.FOREST.environmentImgs[0] = preloadImageNoCanvas("assets/SceneryForest0.png");
-		BIOME.FOREST.environmentImgs[1] = preloadImageNoCanvas("assets/SceneryForest1.png");
-		BIOME.FOREST.environmentImgs[2] = preloadImageNoCanvas("assets/SceneryForest2.png");
-		BIOME.FOREST.environmentImgs[3] = preloadImageNoCanvas("assets/SceneryForest3.png");
-		BIOME.FOREST.environmentImgs[4] = preloadImageNoCanvas("assets/SceneryForest4.png");
-		BIOME.FOREST.environmentImgs[5] = preloadImageNoCanvas("assets/SceneryForest5.png");
+		BIOME.FOREST.environmentImgs[0] = preloadImageNoCanvas("assets/sceneryforest0.png");
+		BIOME.FOREST.environmentImgs[1] = preloadImageNoCanvas("assets/sceneryforest1.png");
+		BIOME.FOREST.environmentImgs[2] = preloadImageNoCanvas("assets/sceneryforest2.png");
+		BIOME.FOREST.environmentImgs[3] = preloadImageNoCanvas("assets/sceneryforest3.png");
+		BIOME.FOREST.environmentImgs[4] = preloadImageNoCanvas("assets/sceneryforest4.png");
+		BIOME.FOREST.environmentImgs[5] = preloadImageNoCanvas("assets/sceneryforest5.png");
 		// Bog
-		BIOME.BOG.environmentImgs[0] = preloadImageNoCanvas("assets/SceneryBog0.png");
-		BIOME.BOG.environmentImgs[1] = preloadImageNoCanvas("assets/SceneryBog1.png");
-		BIOME.BOG.environmentImgs[2] = preloadImageNoCanvas("assets/SceneryBog2.png");
-		BIOME.BOG.environmentImgs[3] = preloadImageNoCanvas("assets/SceneryBog3.png");
-		BIOME.BOG.environmentImgs[4] = preloadImageNoCanvas("assets/SceneryBog4.png");
-		BIOME.BOG.environmentImgs[5] = preloadImageNoCanvas("assets/SceneryBog5.png");
+		BIOME.BOG.environmentImgs[0] = preloadImageNoCanvas("assets/scenerybog0.png");
+		BIOME.BOG.environmentImgs[1] = preloadImageNoCanvas("assets/scenerybog1.png");
+		BIOME.BOG.environmentImgs[2] = preloadImageNoCanvas("assets/scenerybog2.png");
+		BIOME.BOG.environmentImgs[3] = preloadImageNoCanvas("assets/scenerybog3.png");
+		BIOME.BOG.environmentImgs[4] = preloadImageNoCanvas("assets/scenerybog4.png");
+		BIOME.BOG.environmentImgs[5] = preloadImageNoCanvas("assets/scenerybog5.png");
 		// Cave
-		BIOME.CAVE.environmentImgs[0] = preloadImageNoCanvas("assets/SceneryCave0.png");
-		BIOME.CAVE.environmentImgs[1] = preloadImageNoCanvas("assets/SceneryCave1.png");
-		BIOME.CAVE.environmentImgs[2] = preloadImageNoCanvas("assets/SceneryCave2.png");
-		BIOME.CAVE.environmentImgs[3] = preloadImageNoCanvas("assets/SceneryCave3.png");
-		BIOME.CAVE.environmentImgs[4] = preloadImageNoCanvas("assets/SceneryCave4.png");
-		BIOME.CAVE.environmentImgs[5] = preloadImageNoCanvas("assets/SceneryCave5.png");
+		BIOME.CAVE.environmentImgs[0] = preloadImageNoCanvas("assets/scenerycave0.png");
+		BIOME.CAVE.environmentImgs[1] = preloadImageNoCanvas("assets/scenerycave1.png");
+		BIOME.CAVE.environmentImgs[2] = preloadImageNoCanvas("assets/scenerycave2.png");
+		BIOME.CAVE.environmentImgs[3] = preloadImageNoCanvas("assets/scenerycave3.png");
+		BIOME.CAVE.environmentImgs[4] = preloadImageNoCanvas("assets/scenerycave4.png");
+		BIOME.CAVE.environmentImgs[5] = preloadImageNoCanvas("assets/scenerycave5.png");
 		// Mountain
-		BIOME.MOUNTAIN.environmentImgs[0] = preloadImageNoCanvas("assets/SceneryMountain0.png");
-		BIOME.MOUNTAIN.environmentImgs[1] = preloadImageNoCanvas("assets/SceneryMountain1.png");
-		BIOME.MOUNTAIN.environmentImgs[2] = preloadImageNoCanvas("assets/SceneryMountain2.png");
-		BIOME.MOUNTAIN.environmentImgs[3] = preloadImageNoCanvas("assets/SceneryMountain3.png");
-		BIOME.MOUNTAIN.environmentImgs[4] = preloadImageNoCanvas("assets/SceneryMountain4.png");
-		BIOME.MOUNTAIN.environmentImgs[5] = preloadImageNoCanvas("assets/SceneryMountain5.png");
+		BIOME.MOUNTAIN.environmentImgs[0] = preloadImageNoCanvas("assets/scenerymountain0.png");
+		BIOME.MOUNTAIN.environmentImgs[1] = preloadImageNoCanvas("assets/scenerymountain1.png");
+		BIOME.MOUNTAIN.environmentImgs[2] = preloadImageNoCanvas("assets/scenerymountain2.png");
+		BIOME.MOUNTAIN.environmentImgs[3] = preloadImageNoCanvas("assets/scenerymountain3.png");
+		BIOME.MOUNTAIN.environmentImgs[4] = preloadImageNoCanvas("assets/scenerymountain4.png");
+		BIOME.MOUNTAIN.environmentImgs[5] = preloadImageNoCanvas("assets/scenerymountain5.png");
 		//}
 		
 		//== Tower
