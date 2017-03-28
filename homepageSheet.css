@@ -1,0 +1,53 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Raleway';
+    box-sizing: border-box;
+}
+
+body {
+	background: rgba(33,180,226,1);
+	background: -moz-linear-gradient(top, rgba(33,180,226,1) 0%, rgba(113,206,239,1) 8%, rgba(183,222,237,1) 23%, rgba(183,222,237,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(33,180,226,1)), color-stop(8%, rgba(113,206,239,1)), color-stop(23%, rgba(183,222,237,1)), color-stop(100%, rgba(183,222,237,1)));
+	background: -webkit-linear-gradient(top, rgba(33,180,226,1) 0%, rgba(113,206,239,1) 8%, rgba(183,222,237,1) 23%, rgba(183,222,237,1) 100%);
+	background: -o-linear-gradient(top, rgba(33,180,226,1) 0%, rgba(113,206,239,1) 8%, rgba(183,222,237,1) 23%, rgba(183,222,237,1) 100%);
+	background: -ms-linear-gradient(top, rgba(33,180,226,1) 0%, rgba(113,206,239,1) 8%, rgba(183,222,237,1) 23%, rgba(183,222,237,1) 100%);
+	background: linear-gradient(to bottom, rgba(33,180,226,1) 0%, rgba(113,206,239,1) 8%, rgba(183,222,237,1) 23%, rgba(183,222,237,1) 100%);
+}
+
+#backgroundDisplay {
+	position: absolute;
+	z-index: -999;
+	image-rendering: optimizeSpeed;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: -o-crisp-edges;
+	image-rendering: pixelated;
+	-ms-interpolation-mode: nearest-neighbor;
+	background-image: url("media/headerBGPixel.png");
+	background-size: contain;
+}
+
+#mainContent {
+	width: 100%;
+	background-color: rgb(200);
+}
+
+#mainHeader {
+	width: 100%;
+	height: 275px;
+	text-align: center;
+}
+#mainHeader h1, #mainHeader h3 {
+	margin: 0;
+	text-align: center;
+}
+#mainHeader h1 {
+	padding-top: 100px;
+	color: rgb(37, 75, 100);
+	font-size: 2.5em;
+}
+#mainHeader h3 {
+	color: rgb(75,75,75);
+	font-size: 1.5em;
+}

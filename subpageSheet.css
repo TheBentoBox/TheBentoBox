@@ -1,0 +1,44 @@
+body {
+	background-color: rgb(125, 200, 250);
+}
+
+
+#backgroundDisplay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -999;
+}
+
+
+#mainContent {
+	width: 80%;
+	background-color: rgb(200);
+}
+
+
+#mainSidebar {
+	float: left;
+	width: 20%;
+	height: 100vh;
+	padding: 90px 0;
+	text-align: center;
+}
+#mainSidebar h1, #mainSidebar h3 {
+	margin: 0 0 0 25px;
+	text-align: left;
+}
+#mainSidebar h1 {
+	color: rgb(37, 75, 100);
+	font-size: 2.5em;
+}
+#mainSidebar h3 {
+	color: rgb(50, 50, 50);
+	font-size: 1.5em;
+}
+
+
+#directory li {
+	padding-left: 25px;
+	text-align: left;
+}
