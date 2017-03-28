@@ -15,33 +15,31 @@ var globalOverlay;
 var leftScrollButton;
 var rightScrollButton;
 
+// Reference to the header at the top of the page
+var pageHeader;
+
 
 // Called when page is updated
 function init() {
 	// grab all of the project buttons
 	projButtons = document.querySelectorAll('.projButton');
-	
 	// grab the project info pane and overlay
-	projInfo = document.querySelector('#projInfo');
-	globalOverlay = document.querySelector('#globalOverlay');
+	projInfo = document.querySelector('.projectContainer');
+	// grab the page header so we can modiy its text
+	pageHeader = document.querySelector("#pageTitle h1");
 	
 	// and add a callback for each project button to load their respective page
-	for (var i = 1; i < projButtons.length; ++i) {
+	for (var i = 0; i < projButtons.length; ++i) {
 		
 		// grab href and use it to set background image
 		var href = projButtons[i].getAttribute('data-href');
-		projButtons[i].firstChild.nextSibling.style.backgroundImage = "url('media/" + href + "/tile.png')";
+		projButtons[i].firstChild.nextSibling.style.backgroundImage = "url('../media/" + href + "/tile.png')";
 			
 		// make each tile load its respective content
 		projButtons[i].addEventListener('click', function(e) {
 			loadPage(e.target.getAttribute('data-href'));
 		});
 	}
-		
-	// Lowers proj viewer on window click
-	globalOverlay.addEventListener("click", function(e) {
-		closeProjectViewer();
-	});
 	
 	// other options for closing windows
 	window.addEventListener("keyup", function(e) {
@@ -56,15 +54,15 @@ function init() {
 function loadPage(href) {
 	// open a link to the href and send request to load it
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open('GET', 'pages/' + href + '.html', true);
+	xmlhttp.open('GET', href + '.html', true);
 	xmlhttp.send();
 	
+	projInfo.setAttribute('data-oldContents', projInfo.innerHTML);
+	pageHeader.innerText += " > " + href.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+
 	// return the response
 	xmlhttp.addEventListener('load', function() {
 		projInfo.innerHTML = "<p id='escape'>X</p><div>" + xmlhttp.responseText + "</div>";
-		projInfo.style.display = "block";
-		globalOverlay.style.opacity = "0.65";
-		globalOverlay.setAttribute("data-noPointer", "false");
 		document.querySelector('#escape').addEventListener("click", closeProjectViewer);
 		
 		setupGallery();
@@ -73,9 +71,6 @@ function loadPage(href) {
 
 // Attempts to close project viewer if it's open
 function closeProjectViewer() {
-	if (projInfo.style.display == "block") {
-		projInfo.style.display = "none";
-		globalOverlay.style.opacity = "0";
-		globalOverlay.setAttribute("data-noPointer", "true");
-	}
+	projInfo.innerHTML = projInfo.getAttribute('data-oldContents');
+	init();
 }

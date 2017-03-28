@@ -14,15 +14,11 @@
 		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
 		<link rel="icon" href="../favicon.ico" type="image/x-icon" />
 		<script src="../js/backgroundCanvas.js"></script>
+		<script src="../js/gallery.js"></script>
+		<script src="../js/script.js"></script>
 	</head>
 	
 	<body>
-		<section id="iconContainer">
-			<a title="Github" class="mediaIcon github" target="_blank" href="https://github.com/TheBentoBox"></a>
-			<a title="LinkedIn" class="mediaIcon linkedin" target="_blank" href="https://www.linkedin.com/in/jakebentovim"></a>
-			<a title="Resume" class="mediaIcon resume" target="_blank" href="resume.pdf" target="_blank"></a>
-		</section>
-			
 		<article id="mainSidebar">
 			<canvas id="backgroundDisplay" class="sidebarDisplay"></canvas>
 			<h1>Jake Ben-Tovim</h1>
@@ -34,9 +30,179 @@
 				<a href="about.html"><li>About</li></a>
 				<a href="hiring.html"><li>Hiring</li></a>
 			</ul>
+			
+			<section id="iconContainer">
+				<a title="Github" class="mediaIcon github" target="_blank" href="https://github.com/TheBentoBox"></a>
+				<a title="LinkedIn" class="mediaIcon linkedin" target="_blank" href="https://www.linkedin.com/in/jakebentovim"></a>
+				<a title="Resume" class="mediaIcon resume" target="_blank" href="resume.pdf" target="_blank"></a>
+			</section>
 		</article>
 	
 		<article id="mainContent">
+			<header id="pageTitle">
+				<h1>Programming Credits</h1>
+				<hr />
+			</header>
+			
+			<section class="projectContainer">
+			
+				<div class="projButton" data-href="lumina">
+					<div class="buttonContent">
+						<h2>Lumina (Web Game)</h2>
+						<h4>JavaScript - Gamplay/Engine Programmer</h3>
+						<div class="expandedContent">
+							<p>
+								A sidescroller where the environment is only revealed by light.
+							</p>
+						</div>
+						<div class="overlay"></div>
+					</div>
+				</div>
+			
+				<div class="projButton" data-href="leapOfFaith">
+					<div class="buttonContent">
+						<h2>Leap of Faith (Web Game)</h2>
+						<h4>JavaScript - Gameplay/Engine Programmer</h3>
+						<div class="expandedContent">
+							<p>
+								A sidescrolling runner where the user controls three separate characters.
+							</p>
+						</div>
+						<div class="overlay"></div>
+					</div>
+				</div>
+			
+				<div class="projButton" data-href="ballOfCthulhu">
+					<div class="buttonContent">
+						<h2>Shetland Engine (Game Engine)</h2>
+						<h4>C++ - Engine/Graphics Programmer</h3>
+						<div class="expandedContent">
+							<p>
+								A 3D game engine written in C++ and OpenGL, and a simple shooting gallery created with it.
+							</p>
+						</div>
+						<div class="overlay"></div>
+					</div>
+				</div>
+				
+				<div class="projButton" data-href="psychosis">
+					<div class="buttonContent">
+						<h2>Psychosis (Tabletop Game)</h2>
+						<h4>Project Lead & Character Designer</h4>
+						<div class="expandedContent">
+							<p>
+								A Lovecraftian horror board game centered entirely on sanity.
+							</p>
+						</div>
+						<div class="overlay"></div>
+					</div>
+				</div>
+				
+				<div class="projButton" data-href="audioVisualizer">
+					<div class="buttonContent">
+						<h2>Audio Visualizer (Web App)</h2>
+						<h4>JavaScript - Programmer (Solo)</h4>
+						<div class="expandedContent">
+							<p>
+								A JavaScript app that visualizes three songs with customizable filters and colors.
+							</p>
+						</div>
+						<div class="overlay"></div>
+					</div>
+				</div>
+				
+				<div class="projButton" data-href="concerto">
+					<div class="buttonContent">
+						<h2>Concerto (Web App)</h2>
+						<h4>JavaScript - Programmer (Solo)</h4>
+						<div class="expandedContent">
+							<p>
+								A JavaScript app that lets users simultaneously search for concerts and album previews. 
+							</p>
+						</div>
+						<div class="overlay"></div>
+					</div>
+				</div>
+				
+				<div class="projButton" data-href="quest">
+					<div class="buttonContent">
+						<h2>Quest (2D Adventure)</h2>
+						<h4>C# Monogame - Gameplay Programmer</h4>
+						<div class="expandedContent">
+							<p>
+								A small adventure game built in C# with Monogame.
+							</p>
+						</div>
+						<div class="overlay"></div>
+					</div>
+				</div>
+			
+				<div class="projButton" data-href="traction">
+					<div class="buttonContent">
+						<h2>Traction (2D Sandbox Demo)</h2>
+						<h4>Java Processing - Gameplay/Framework Programmer</h4>
+						<div class="expandedContent">
+							<p>
+								A 2D, procedurally generated, blocky sandbox prototype.
+							</p>
+						</div>
+						<div class="overlay"></div>
+					</div>
+				</div>
+				
+				<div class="projButton" data-href="resist">
+					<div class="buttonContent">
+						<h2>Resist! (2D Platformer)</h2>
+						<h4>Game Maker - Lead Gameplay Programmer & Artist</h4>
+						<div class="expandedContent">
+							<p>
+								A 2D platformer where players complete electronic circuits to progress.
+							</p>
+						</div>
+						<div class="overlay"></div>
+					</div>
+				</div>
+				
+				<div class="projButton" data-href="timeDilator">
+					<div class="buttonContent">
+						<h2>Time Dilator (2D Shooter)</h2>
+						<h4>Game Maker - Lead Gameplay Programmer & Artist</h4>
+						<div class="expandedContent">
+							<p>
+								A hybrid of a psychedelic space shooter and a time dilation pop quiz.
+							</p>
+						</div>
+						<div class="overlay"></div>
+					</div>
+				</div>
+				
+				<div class="projButton" data-href="whenSquidsAttack">
+					<div class="buttonContent">
+						<h2>When Squids Attack! (3D Simulation)</h2>
+						<h4>Unity C# - Programmer (Solo)</h4>
+						<div class="expandedContent">
+							<p>
+								An underwater simulation in Unity with C# utilizing AI seeking algorithms.
+							</p>
+						</div>
+						<div class="overlay"></div>
+					</div>
+				</div>
+				
+				<div class="projButton" data-href="globalize">
+					<div class="buttonContent">
+						<h2>Globalize (2D Simuation)</h2>
+						<h4>Game Maker - Programmer & Artist (Solo)</h4>
+						<div class="expandedContent">
+							<p>
+								A simulation modeling how globalization affects our cultural values.
+							</p>
+						</div>
+						<div class="overlay"></div>
+					</div>
+				</div>
+			</section>
+			
 		</article>
 	</body>
 </html>
