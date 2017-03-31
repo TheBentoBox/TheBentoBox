@@ -121,14 +121,38 @@ body {
 }
 
 
-#gallery {
+.projMedia {
 	float: left;
-	margin: 0 25px 25px 0;
+	width: 50%;
+	position: relative;
+	top: 30px;
+}
+.projDescription {
+	float: right;
+	width: 50%;
+}
+.projDescription h1 {
+	font-size: 2em;
+	margin: 25px 0;
+}
+#gallery[data-maxImg="1"] {
+	cursor: default;
+}
+#gallery, .projVid {
+	display: block;
+	margin: auto;
+	max-width: 80%;
+	cursor: pointer;
+}
+video.projVid{;
+	cursor: default;
 }
 #prevImgButton, #nextImgButton {
-	top: 50%;
+	display: none;
 	width: 60px;
 	height: 60px;
+	float: left;
+	position: relative;
 	background: rgba(250, 250, 250, 0.8);
 	border: 1px solid rgb(175, 175, 175);
 	border-radius: 50%;
@@ -138,4 +162,37 @@ body {
 }
 #nextImgButton {
 	right: 0;
+}
+#escape {
+	background-color: rgb(75, 150, 200);
+	color: white;
+	font-size: 1.25em;
+	margin: auto;
+	margin-bottom: 25px;
+	padding: 8px;
+	text-align: center;
+	width: 80%;
+}
+#escape:hover {
+	background-color: rgb(60, 135, 185);
+	cursor: pointer;
+}
+h2 a {
+	width: 30%;
+	text-align: center;
+	background-color: rgb(230, 230, 230);
+	border-radius: 5px;
+	padding: 10px;
+}
+h2 a:hover {
+	background-color: rgb(215, 215, 215);
+}
+h2 a:first-child {
+	margin: 30px 2.5% 30px 17.5%;
+	display: inline-block;
+}
+h2 a:only-child {
+	margin: 30px 2.5% 30px 25%;
+	display: inline-block;
+	width: 50%;
 }
