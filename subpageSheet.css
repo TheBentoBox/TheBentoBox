@@ -57,9 +57,27 @@ body {
 
 
 
-.projectContainer {
-	margin: 30px;
+.aboutMe .floatLeft {
+	margin: 0 30px 10px 0;
+}
+.aboutMe .floatRight {
+	margin: 0 0 10px 20px;
+}
+.aboutMe ul {
+	position: relative;
+	top: 15px;
+	left: 30px;
+}
+.aboutMe {
+	position: relative;
+	width: 50%;
+	font-size: 1.2em;
+	padding: 2.5%;
 	margin-top: 95px;
+}
+.projectContainer {
+	margin-top: 95px;
+	margin: 30px;
 }
 .projButton {
 	width: 20.0%;

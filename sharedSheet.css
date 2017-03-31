@@ -51,3 +51,20 @@ a:link {
 .resume {
 	background-image: url("media/resume.png");
 }
+
+
+.floatLeft {
+	float: left;
+}
+.floatRight {
+	float: right;
+}
+.checklist {
+	list-style: none;
+}
+.checklist li:before {
+	content: "\2714";
+	display: inline-block;
+	width: 1.3em;
+	color: green;
+}
