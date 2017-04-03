@@ -11,10 +11,6 @@ var projButtons;
 var projInfo;
 var globalOverlay;
 
-// References to the left/right arrow buttons
-var leftScrollButton;
-var rightScrollButton;
-
 // Reference to the header at the top of the page
 var pageHeader;
 
@@ -62,7 +58,9 @@ function loadPage(href) {
 		projMediaPanel.innerHTML = "<p id='escape'>Return to project listing</p>" + projMediaPanel.innerHTML;
 		document.querySelector('#escape').addEventListener("click", closeProjectViewer);
 		
-		setupGallery();
+		Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+		document.querySelector('.galleria').style.height = document.querySelector('.galleria').clientWidth + "px";
+		Galleria.run('.galleria');
 	});
 }
 
