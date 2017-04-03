@@ -21,11 +21,11 @@
 }
 
 
-a:visited {
+#directory a:visited {
 	color: black;
 	text-decoration: none;
 }
-a:link {
+#directory a:link {
 	color: black;
 	text-decoration: none;
 }
@@ -59,12 +59,27 @@ a:link {
 .floatRight {
 	float: right;
 }
-.checklist {
+ul.checklist {
+	display: table;
 	list-style: none;
+	width: 75%;
+	margin: 25px 0;
 }
-.checklist li:before {
-	content: "\2714";
-	display: inline-block;
-	width: 1.3em;
+ul.checklist > li {
+	display: table-row;
+}
+ul.checklist > li:before {
 	color: green;
+	content: "\2714\00a0 \00a0 ";
+	display: table-cell;
+	text-align: right;
+	width: 1.3em;
+}
+
+
+a:link, a:visited {
+	color: rgb(50, 125, 175);
+}
+a:hover {
+	color: rgb(0, 75,  125);
 }

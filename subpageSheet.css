@@ -47,6 +47,7 @@ body {
 	width: 80%;
 }
 #pageTitle {
+	z-index: 1;
 	position: fixed;
 	width: 100%;
 	background-color: rgb(240, 240, 240);
@@ -76,8 +77,8 @@ body {
 	margin-top: 95px;
 }
 .projectContainer {
-	margin-top: 95px;
 	margin: 30px;
+	margin-top: 95px;
 }
 .projButton {
 	width: 20.0%;
@@ -153,17 +154,14 @@ body {
 	font-size: 2em;
 	margin: 25px 0;
 }
-#gallery[data-maxImg="1"] {
+.galleria[data-maxImg="1"] {
 	cursor: default;
 }
-#gallery, .projVid {
+.galleria, .projVid, .projMedia img {
 	display: block;
 	margin: auto;
 	max-width: 80%;
 	cursor: pointer;
-}
-video.projVid{;
-	cursor: default;
 }
 #prevImgButton, #nextImgButton {
 	display: none;
@@ -213,4 +211,13 @@ h2 a:only-child {
 	margin: 30px 2.5% 30px 25%;
 	display: inline-block;
 	width: 50%;
+}
+
+
+
+.workExperience li {
+	margin-left: 30px;
+}
+.workExperience {
+	margin-bottom: 25px;
 }
