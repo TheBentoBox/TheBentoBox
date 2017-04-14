@@ -65,8 +65,10 @@
 						audioObject.pause();
 						
 						// Bandsintown API retrieval - Spotify is inside
-						$.getJSON("https://api.bandsintown.com/artists/" + query + "/events.json?callback=?&app_id=Concerto",
+						$.getJSON("https://rest.bandsintown.com/artists/" + query + "/events?app_id=Concerto",
 							function(response) {
+								 console.log(response);
+								
 								// Refresh the results list
 								concertResults.innerHTML = "<h1>Upcoming Events</h1>";
 								
@@ -83,8 +85,8 @@
 								// if there are results
 								else {
 									// Append initial 'results found' text
-									concertResults.innerHTML += "<h2>" + response.length + " events found for artist <a href='" + response[0].artists[0].url + "'>" + response[0].artists[0].name + "</a>...</h2>";
-									fixedArtist = response[0].artists[0].name;
+									concertResults.innerHTML += "<h2>" + response.length + " events found for artist " + response[0].lineup[0] + "</a>...</h2>";
+									fixedArtist = response[0].lineup[0];
 									
 									// Set the height to now scale with the number of concerts instead of the number of albums
 									$('#concertResults').height("auto");
@@ -100,7 +102,7 @@
 										// Base div with lat/lng data for later locational reference
 										resultsHTML[i] = "<div class='concertResult' data-latitude='" + e.venue.latitude + "' data-longitude='" + e.venue.longitude + "'>";
 										// event page and event's venue's page on Bandsintown
-										resultsHTML[i] += "<h3><a href='" + e.venue.url + "'>Venue Page</a> • ";
+										// resultsHTML[i] += "<h3><a href='" + e.venue.url + "'>Venue Page</a> • ";
 										resultsHTML[i] += "<a href='" + e.url + "'>Event Page</a></h3>"
 										// name of venue - many venues include the event name, we splice this out
 										var venName = e.venue.name;
@@ -133,7 +135,11 @@
 										resultsHTML[i] += "<p><strong>Date:</strong> " + dateString + "</p>";
 										
 										// Ticket status
-										resultsHTML[i] += "<p><strong>Tickets:</strong> <a href='" + e.ticket_url + "'>" + e.ticket_status + "</a></p>";
+										if (e.offers.length > 0)
+											resultsHTML[i] += "<p><strong>Tickets:</strong> <a href='" + e.offers[0].url + "'>" + e.offers[0].status + "</a></p>";
+										else
+											resultsHTML[i] += "<p><strong>Tickets:</strong> <em>unavailable</em></p>";
+											
 										resultsHTML[i] += "</div>";
 										
 										// Convert the string to an HTML element
