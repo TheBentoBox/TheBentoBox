@@ -1,0 +1,41 @@
+<section class="projMedia">
+	<h2>
+		<a target="_blank" href="http://kinesthesia.herokuapp.com/">
+			<i class="icon fa fa-gamepad fa-lg" aria-hidden="true"></i>
+			Play
+		</a>
+		<a target="_blank" href="https://github.com/TheBentoBox/Kinesthesia">
+			<i class="icon fa fa-github fa-lg" aria-hidden="true"></i>
+			View the source
+		</a>
+	</h2>
+	<div class="galleria">
+		<img src="../media/kinesthesia/kinesthesia1.png">
+		<img src="../media/kinesthesia/kinesthesia2.png">
+		<img src="../media/kinesthesia/kinesthesia3.png">
+	</div>
+</section>
+
+<section class="projDescription">
+	<h1>Kinesthesia</h1>
+	<h3>Summary & Technical Overview</h3>
+	<p>
+		<em>Kinesthesia</em> is a competitive physics-based web game developed as a half-semester project. Players compete in 1v1 matches to try to get as many gems as possible into their goal within the time limit. Gems cannot be  interacted with directly, but instead are manipulated using three abilities: a simple cannonball, a gravity well, and a grenade. The game itself uses Matter.js for its physics, with Pixi.js for WebGL rendering. The site utilizes an MVC framework (Express, bodyParser, CSRF) with socket.io for web socket communication, MongoDB for user data storage, and Redis for user sessions, all deployed to Heroku. More info can be found <a href="https://kinesthesia.herokuapp.com/documentation" target="_blank">here</a>.
+	</p>
+	<br />
+	
+	<h3>My Contribution</h3>
+	<p>
+		My main contribution was setting up the site framework, which includes the entire client-server communication system through socket.io that allows for matchmaking, transmission of game info between users, and the global chat. User accounts (and the data tied to them) were also my responsibility; this includes a user account page where they can view their statistics (stored by Mongo), username changing, and the page that lists online users and their stats. Design-wise, my development partner and I worked equally on developing the game concept itself.
+	</p>
+	<br />
+	
+	<h3>Post-Mortem</h3>
+	<p>
+		This project was fairly difficult to develop, as expected of an online realtime physics game. It isn't perfect, but given it was my first foray into both realtime physics and a larger Node.js project, I'm fairly happy with the result. The server code is pretty solid, particularly the site-wide chat and the user data retrieval.
+	</p>
+	<br />
+	<p>
+		Overall, this game was never meant to be a huge or perfect project, so I'd say our goals were accomplished. If I were to go back and work on it, I'd likely try to clean up the way objects are handled between clients (e.g. currently the server doesn't confirm whether the client user recevies an object removal packet from the host user). Another goal could be reducing the lag for the client user; Matter.js wasn't even intended for multipayer physics games (its objects aren't even big enough to send normally through socket.io), so by no means does the game run incredibly well for the client user.
+	</p>
+</section>
