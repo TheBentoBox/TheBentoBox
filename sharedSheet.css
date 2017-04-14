@@ -29,6 +29,9 @@
 	color: black;
 	text-decoration: none;
 }
+.projMedia h2 a	{
+	text-decoration: none;
+}
 
 
 #iconContainer {

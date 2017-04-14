@@ -17,7 +17,7 @@ body {
 #mainSidebar {
 	position: fixed;
 	float: left;
-	width: 20%;
+	width: 18%;
 	height: 100%;
 	padding: 90px 0;
 	text-align: center;
@@ -44,7 +44,7 @@ body {
 
 #mainContent {
 	float: right;
-	width: 80%;
+	width: 82%;
 }
 #pageTitle {
 	z-index: 1;
@@ -160,8 +160,7 @@ body {
 .galleria, .projVid, .projMedia img {
 	display: block;
 	margin: auto;
-	max-width: 80%;
-	cursor: pointer;
+	width: 90%;
 }
 #prevImgButton, #nextImgButton {
 	display: none;
@@ -204,11 +203,11 @@ h2 a:hover {
 	background-color: rgb(215, 215, 215);
 }
 h2 a:first-child {
-	margin: 30px 2.5% 30px 17.5%;
+	margin: -10px 2.5% 15px 17.5%;
 	display: inline-block;
 }
 h2 a:only-child {
-	margin: 30px 2.5% 30px 25%;
+	margin: -10px 2.5% 15px 25%;
 	display: inline-block;
 	width: 50%;
 }
