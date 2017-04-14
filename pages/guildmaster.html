@@ -1,0 +1,48 @@
+<section class="projMedia">
+	<h2>
+		<a target="_blank" href="http://guildmaster.herokuapp.com/">
+			<i class="icon fa fa-gamepad fa-lg" aria-hidden="true"></i>
+			Play
+		</a>
+		<a target="_blank" href="https://github.com/TheBentoBox/guildmaster">
+			<i class="icon fa fa-github fa-lg" aria-hidden="true"></i>
+			View the source
+		</a>
+	</h2>
+	<div class="galleria">
+		<img src="../media/guildmaster/guildmaster1.png">
+		<img src="../media/guildmaster/guildmaster2.png">
+		<img src="../media/guildmaster/guildmaster3.png">
+		<img src="../media/guildmaster/guildmaster4.png">
+		<img src="../media/guildmaster/guildmaster5.png">
+		<img src="../media/guildmaster/guildmaster6.png">
+	</div>
+</section>
+
+<section class="projDescription">
+	<h1>Guildmaster</h1>
+	<h3>Summary & Technical Overview</h3>
+	<p>
+		<em>Guildmaster</em> is a demo adventure game dungeon created in Unreal Engine 4, utilizing both Blueprints and C++. The project came about as part of an independent study of Unreal to gain an understanding of how it works. The backend is fairly simple, as it's a "tech demo" of sorts that represented basic plans for a larger game concept. It includes puzzles, basic combat, object interactions, collectibles, and level progression.
+	</p>
+	<br />
+	
+	<h3>My Contribution</h3>
+	<p>
+		My biggest contribution was the ObjectInteractable parent Blueprint class, which we used for quite a few game components, such as levers, doors, collectibles, and other various puzzle components. It uses a forward raytrace from the player's camera that detects collisions with ObjectInteractables and calls their generic activation event, which can be overriden by child classes of the activatable. They can also be setup to "chain" to any number of other activatables, meaning activating one activatable will activate those other activatables (e.g. pulling a lever to toggle two lights).
+	</p>
+	<br>
+	<p>
+		I also did the Blueprinting for enemy AI (including animation events such as the screen shake caused by the boss's smash attack), experimented with destructible objects (which we used for one of the puzzles), and helped lay out the level.
+	</p>
+	<br />
+	
+	<h3>Post-Mortem</h3>
+	<p>
+		Learning a new game engine from scratch without proper guidance can be overwhelming, but once I got the hang of Unreal, I started to enjoy it. Previous experience in Unity was helpful, but they still have their differences, especially when it comes to proprietary differences like Unreal's macro-heavy style of C++ and Blueprints.
+	</p>
+	<br />
+	<p>
+		If ever I am to have a personal 3D game project, this project has made me inclined to choose Unreal as the engine for it. It's very powerful, has nice tools for quick prototyping (mostly in the form of Blueprints), and the community is large and kind.
+	</p>
+</section>
