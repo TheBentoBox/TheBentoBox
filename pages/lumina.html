@@ -1,11 +1,4 @@
 <section class="projMedia">
-	<div class="galleria">
-		<img src="../media/lumina/lumina1.png">
-		<img src="../media/lumina/lumina2.png">
-		<img src="../media/lumina/lumina3.png">
-		<img src="../media/lumina/lumina4.png">
-		<img src="../media/lumina/lumina5.png">
-	</div>
 	<h2>
 		<a href="../Lumina/lumina.html">
 			<i class="icon fa fa-gamepad fa-lg" aria-hidden="true"></i>
@@ -16,44 +9,37 @@
 			View the source
 		</a>
 	</h2>
+	<div class="galleria">
+		<img src="../media/lumina/lumina1.png">
+		<img src="../media/lumina/lumina2.png">
+		<img src="../media/lumina/lumina3.png">
+		<img src="../media/lumina/lumina4.png">
+		<img src="../media/lumina/lumina5.png">
+	</div>
 </section>
 
 <section class="projDescription">
 	<h1>Lumina</h1>
 	
-	<h3>Description & Project Role</h3>
+	<h3>Summary & Technical Overview</h3>
 	<p>
-		<em>Lumina</em> is a 2D sidescroller created in 5 weeks. The player can cast spells to defeat enemies and can capture checkpoints as they
-		explore the world. I acted as the lead gameplay programmer and engine developer.
+		<em>Lumina</em> is a 2D sidescroller created in 5 weeks. The player can cast spells to defeat enemies and can capture checkpoints as they explore the world. Almost everything is porytrayed as a near pitch black silhouette, with your spells providing most of the light in the game. Spells are split into different types (bolt, rune, and grenade) and elements (fire, water, and earth), allowing for nine combinations.
+	</p>
+	<br>
+	<p>
+		The game was created in JavaScript using canvas. The most programmatically complicated aspect of the game is the lighting engine, which uses canvas composite operations. The game screen is first drawn normally to an offscreen canvas. It is then copied to the onscreen canvas, and is masked with a black overlay. Then, light sources are cut out from the destination canvas silhouette. After that, the original colored image is placed below the silhouette, the sky background is placed below everything, and then post-process draw calls are made.
+	</p>
+	<br />
+	
+	<h3>My Contribution</h3>
+	<p>
+		I was responsible for a large majority of the game's programming, as the other group members were dedicated to our UI framework, art, and music/design. This included the backend "engine" that runs the game, the lighting engine, and all gameplay systems such as health, mana, enemy spawning/AI, and player movement and abilities.
 	</p>
 	<br />
 
-	<h3>Technical Overview & My Contribution</h3>
+	<h3>Post-Mortem</h3>
 	<p>
-		<em>Lumina</em> was created in Javascript using canvas. It uses no pre-defined engine - I coded all gameplay behaviors from scratch.
-		The most programmatically complicated aspect of the game is the lighting engine, which uses canvas composite operations. The game screen
-		is first drawn normally to an offscreen canvas. It is then copied to the onscreen canvas, and is masked with a black overlay. Then, light sources
-		are cut out from the destination canvas silhouette. After that, the original colored image is placed below the silhouette, the sky background is
-		placed below everything, and then post-process draw calls are made.
+		Due to the complexity of the lighting and parallaxes, the game can have performance issues on some browsers. If I were to do the project over, I would attempt to do it in WebGL for optimum performance. Other than that, I feel that the game has a lot of potential, but it didn't make it as far as many of our other sprint-length projects did, and feels more like a tech demo than anything else. The light mechanic is fairly unique though, so I see it as having potential should we ever want to go back to it.
 	</p>
-	<br />
-	<p>
-		Because of the complexity of the lighting and parallaxes, the game can have performance issues on some browsers. If I were to do the project over, it
-		would be in WebGL for optimum performance.
-	</p>
-	<br />
-
-	<h3>Mechanics & Design</h3>
-	<p>
-		Almost everything in the game world is porytrayed as a near pitch black silhouette. The player character is a wizard whose spells can damage enemies
-		and cast light upon objects, temporarily revealing them. The design of the world relies largely on the ambience created by the colors and lighting.
-		Players prepare spells in two parts. The first selection is of the spell type - bolt, rune, or grenade. Bolts are weaker with long range, runes lay down
-		a trap on the ground, and grenades are much slower but do an AOE blast of heavy damage.
-	<p>
-	<br />
-	</p>
-		Each spell type can also be one of three elements - fire, water, and earth. Due to the short development time of the project, there isn't much difference
-		between the elements. Fire spells do additional burn damage over time, earth spells do the most damage but are the heaviest, and water spells do the least
-		damage, but are the lightest.
-	</p>
+	
 </section>
