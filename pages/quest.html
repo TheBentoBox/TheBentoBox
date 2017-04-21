@@ -11,33 +11,22 @@
 	<h1>Quest</h1>
 	<h3>Summary & Technical Overview</h3>
 	<p>
-		<em>Quest</em> is a small adventure game created as a semester project, paying homage to traditional adventure game series, such as <em>The Legend of Zelda</em>.
+		<em>Quest</em> is a small adventure game created as a semester project, paying homage to traditional adventure game series, such as <em>The Legend of Zelda</em>. It's developed in C#, using the MonoGame framework as part of the engine; it uses no game engine outside of this. Saving and loading is done through CSV-style files which return the game to its previous state. Object and tile types are stored by ID in a 2D array, and the objects within view of the player are rendered offset based on the player's position, which simulates movement.
 	</p>
 	<br />
 	
-	<h3>Technical Overview & My Contribution</h3>
+	<h3>My Contribution</h3>
 	<p>
-		<em>Quest</em> is coded in C#, using the MonoGame framework.
-		My main job was the underlying engine. This included creating a world you could walk around
-		in (including map handling and the draw loop), player-object-enemy interactions (attacking,
-		object pickup, and inventory), progression, and combat elements, such as health and
-		enemy AI. Maps are loaded in from CSV-style files where IDs represent different tiles.
+		My main job was the underlying engine. This included creating a world you could walk around in (including map handling and the draw loop), player-object-enemy interactions (attacking, object pickup, and inventory), progression, and combat elements, such as health, enemy AI, projectiles, and activatable objects.
 	</p>
 	<br />
 	
-	<h3>Mechanics & Design</h3>
+	<h3>Post-Mortem</h3>
 	<p>
-		The idea was to make a game that was as stereotypical of an adventure game as possible,
-		inspired by the like of <em>The Legend of Zelda</em>. This served as the theme and central
-		joke of the game - the enemies are slimes, the boss is the Doom Wizard, and even the name,
-		just 'Quest'. It allowed us to focus on a solid code base and art as opposed to overscoping the project.
+		The game is very simple, but it ended up being exactly what it had to be given the project's scope. As a first exercise in coding a game from scratch without a fully-fledged engine, it was a great learning experience in many ways (world drawing, tilesets, and coding 2D gameplay from scratch).
 	</p>
 	<br />
-	
 	<p>
-		Players start with just the sword, and acquire a bow and an ice staff as the game progresses.
-		The player starts with three hearts, which are divided into quarters. Progression requires finding five
-		coloured gems. Each gem unblocks the path being guarded by its matching statue (the one of the
-		same colour). They also each add a heart to the players max health.
+		As this was more of a learning experience than anything else, I have no personal interest in going back to this project to work more on it. It ended up in a state we were happy in, and given we were first years in college, that's enough for me.
 	</p>
 </section>
