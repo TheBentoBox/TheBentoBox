@@ -7,29 +7,25 @@
 
 <section class="projDescription">
 	<h1>When Squids Attack!</h1>
-	<h3>Description & Project Role</h3>
+	<h3>Summary & Technical Overview</h3>
 	<p>
-		<em>When Squids Attack!</em> is a simulation with the intention of representing an automated environment
-		where creatures interact with each other realistically. It was an independent project; I created all code and assets.
+		<em>When Squids Attack!</em> is a simulation with the intention of representing an automated environment where creatures interact with each other realistically. The simulation was created in Unity 4.3, and was programmed in C#.
+	</p>
+	<br />
+	<p>
+		The squid and fish behaviors are controlled by various steering behaviors (algorithms based on vector math to determine action). The squid and fish detect each other and decide how to move based on their distance from each other. The squid seeks the nearest fish, eats it once it catches it, and targets the next closest fish after a moment of rest. The fish move in schools between the glowing plants; the schools can dynamically break and merge back together. The fish avoid the squid once it gets too close. All of the creatures avoid the various obstacles, such as coral.
 	</p>
 	<br />
 	
 	<h3>Technical Overview & My Contribution</h3>
 	<p>
-		The simulation was created in Unity 4.3, and was programmed in C#. The squid and fish behaviors are controlled through
-		the implementation of various steering behaviors - algorithms based on vector math to determine action. The squid and fish
-		constantly detect each other, and decide how to move based on their distance from each other. The squid seeks the
-		nearest fish, eats it once it catches it, and targets the next closest fish after a moment of rest. The fish move in flocks,
-		which can dynamically break and merge back together, and which tend to move between the glowing plants. They avoid
-		the squid once it gets too close. All of the creatures avoid the various obstacles, such as coral.
+		This was an independent project; I created all code and assets. This includes the code for the parent vehicle class which controls steering behaviors, and the various assets used in the scene. Some of these assets were created in Maya, while some were created directly in Unity using some prefabs.
 	</p>
 	<br />
 	
-	<h3>Mechanics & Design</h3>
+	<h3>Post-Mortem</h3>
 	<p>
-		There is no player interaction - the project is entirely a simulation. The camera follows the squid, who undoubtedly eventually
-		catches all of the fish. The objects on the map are randomly placed with each run of the simulation, adding a little extra diversity
-		to each viewing.
+		This was very enjoyable to work on. Steering behaviors are a great tool for creating dynamic and realistic AI, and this project was a good learning opportunity in why we should use these behaviors and how to do so. It's pretty soothing to watch, and I'd have it as a screensaver if I could.
 	</p>
 	<br />
 </section>
