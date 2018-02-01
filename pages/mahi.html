@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" class="homepage">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<title>Jake Ben-Tovim: Portfolio</title>
+
+		<link rel="stylesheet" type="text/css" href="../sharedSheet.css" />
+		<link rel="stylesheet" type="text/css" href="../subpageSheet.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css' />
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+		<script src="../js/backgroundCanvas.js"></script>
+	</head>
+
+	<body>
+		<article id="mainSidebar">
+			<canvas id="backgroundDisplay" class="sidebarDisplay"></canvas>
+			<h1>Jake Ben-Tovim</h1>
+			<h3>Gameplay Programmer & Designer</h3>
+
+			<ul id="directory">
+				<a href="../index.html"><li>Home</li></a>
+				<a href="programmingCredits.html"><li>Programming Credits</li></a>
+				<a href="designCredits.html"><li>Design Credits</li></a>
+				<a href="about.html"><li>About</li></a>
+			</ul>
+
+			<section id="iconContainer">
+				<a title="Github" class="mediaIcon github" target="_blank" href="https://github.com/TheBentoBox"></a>
+				<a title="LinkedIn" class="mediaIcon linkedin" target="_blank" href="https://www.linkedin.com/in/jakebentovim"></a>
+				<a title="Resume" class="mediaIcon resume" target="_blank" href="../resume.pdf"></a>
+			</section>
+		</article>
+
+		<article id="mainContent">
+			<header id="pageTitle">
+				<h1>Mahi Gaming Skill Assessment</h1>
+				<hr />
+			</header>
+
+			<div class="flexContent">
+				<section class="column">
+					<h3>Task 1: Slots UML</h3>
+					<img src="../media/slotsUML.png" width="100%">
+					<p>A very basic slots game requires three parts: the reels which have capacity to spin, a slot machine which contains reels and determines its spin state based on its reels, and an engine to drive everything.</p>
+					<p>Other possibilities for fields (depending on intended complexity or extensibility) could include a configurable reel count, a configurable panel count per-reel, breaking currency tracking out into a bank object.</p>
+					<p>You could also take a state-driven approach (as I did in my implementation) which would remove the need for spinning start and getter methods as these will naturally start & return true respectively based on the game state. I chose to not emphasize a state-driven approach in the UML because it abstracts some of the functionality in ways that aren't obvious in a chart.</p>
+				</section>
+				<section class="column">
+					<h3>Task 2: Slots Game</h3>
+					<a href="slots/index.html" target="_blank">Click to play slots!</a>
+					<p>To run the slots, pull the lever on the right. A spin round will run automatically, and you can pull the lever to play again once it ends.</p>
+					<p>Behind the scenes, the game uses a state-driven pattern for determining game state and available actions. I went with a simplistic art style, with the three images on the reel panels themed with ocean iconography - a squid, lobster, and scallop shell. I chose this theme as lobsters and squids both happen to relate to a common reference/inside joke amongst my friend group. The scallop shell is just to fill the ocean trio out.</p>
+					<p>The currency icon used in both games is a coin with a lion icon on it; lions are my favorite animal and as such are a common symbol or theme I integrate into various random things (e.g. my online handle on some sites references Simba from The Lion King).</p>
+				</section>
+				<section class="column">
+					<h3>Task 3: "Wheel of Wealth" Game</h3>
+					<a href="wheel/index.html" target="_blank">Click to spin the wheel!</a>
+					<p>To spin the wheel, simple click on it. You can click the dice icon on the top right to go into 'rigging mode', allowing you to click on a slice of the wheel which it will foricbly land on for all future spins until the wheel is unrigged.</p>
+					<p>This uses the same pattern as the slots game, with a state-based implementation for controlling game flow. I find state systems to be clean, extensible, and less prone to bugs than other patterns.</p>
+				</section>
+			</div>
+		</article>
+	</body>
+</html>
