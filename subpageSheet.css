@@ -1,5 +1,9 @@
+html, body {
+	height: 100%;
+}
 body {
 	background: rgb(250, 250, 250);
+	display: flex;
 }
 
 
@@ -15,15 +19,10 @@ body {
 
 
 #mainSidebar {
-	position: fixed;
-	float: left;
-	width: 18%;
-	height: 100%;
-	padding: 90px 0;
-	text-align: center;
+	flex: 1;
+	padding: 90px 20px;
 }
 #mainSidebar h1, #mainSidebar h3 {
-	margin: 0 0 0 25px;
 	text-align: left;
 }
 #mainSidebar h1 {
@@ -37,19 +36,17 @@ body {
 
 
 #directory li {
-	padding-left: 25px;
 	text-align: left;
 }
 
 
 #mainContent {
-	float: right;
-	width: 82%;
+	flex: 4;
+	border-left: 1px solid gray;
+	background-color: rgb(250, 250, 250);
 }
 #pageTitle {
-	z-index: 1;
-	position: fixed;
-	width: 100%;
+	height: 65px;
 	background-color: rgb(240, 240, 240);
 }
 #pageTitle h1 {
@@ -70,15 +67,17 @@ body {
 	left: 30px;
 }
 .aboutMe {
+	overflow: auto;
 	position: relative;
 	width: 50%;
+	height: calc(100% - 65px);
 	font-size: 1.2em;
-	padding: 2.5%;
-	margin-top: 95px;
+	padding: 2.5rem;
 }
 .projectContainer {
-	margin: 30px;
-	margin-top: 95px;
+	padding: 30px;
+	max-height: calc(100% - 65px);
+	overflow: auto;
 }
 .projButton {
 	width: 20.0%;
@@ -219,4 +218,25 @@ h2 a:only-child {
 }
 .workExperience {
 	margin-bottom: 25px;
+}
+
+
+.flexContent {
+	display: flex;
+	height: calc(100% - 65px);
+}
+.column {
+	height: 100%;
+	flex: 1;
+	padding: 0 1.5rem;
+	overflow: auto;
+}
+.column:not(:last-child) {
+	border-right: 1px solid gray;
+}
+.column > h3 {
+	margin: 1.5rem 0 1rem 0;
+}
+.column > p {
+	margin-top: 1rem;
 }
