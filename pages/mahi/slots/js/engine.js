@@ -44,8 +44,8 @@ game.engine = (function() {
     canvas = document.querySelector('.main-canvas');
     ctx = canvas.getContext('2d');
     if (window.innerWidth > window.innerHeight) {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = window.outerWidth;
+      canvas.height = window.outerHeight;
     }
     else {
       canvas.height = window.innerWidth;
@@ -124,10 +124,6 @@ game.engine = (function() {
     // Darken the background
     ctx.fillStyle = 'rgba(0, 0, 0, 0.65)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Balance overlay
-    ctx.drawImage(images['coin'], 10, 10);
-    fillTextAligned(ctx, 'x' + balance, 90, 65, 24, '#EEE');
   }
 
   // Draws overlays atop the rest of the game, i.e. 'game over' state
@@ -145,6 +141,10 @@ game.engine = (function() {
         break;
     }
     ctx.restore();
+
+    // Balance overlay
+    ctx.drawImage(images['coin'], 10, 10);
+    fillTextAligned(ctx, 'x' + balance, 90, 65, 24, '#EEE');
   }
 
   // General getters & setters which are exported in the interface for other
