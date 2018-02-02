@@ -38,7 +38,7 @@
 
 		<article id="mainContent">
 			<header id="pageTitle">
-				<h1>Mahi Gaming Skill Assessment</h1>
+				<h1>MahiGaming Skill Assessment</h1>
 				<hr />
 			</header>
 
@@ -48,14 +48,14 @@
 					<img src="../media/slotsUML.png" width="100%">
 					<a href="https://i.gyazo.com/a88f80df4b8f63dc657b803984bad963.png" target="_blank">Full size image</a>
 					<p>A very basic slots game requires three parts: the reels which have capacity to spin, a slot machine which contains reels and determines its spin state based on its reels, and an engine to drive everything.</p>
-					<p>Other possibilities for fields (depending on intended complexity or extensibility) could include a configurable reel count, a configurable panel count per-reel, breaking currency tracking out into a bank object.</p>
+					<p>Other possibilities include (depending on intended complexity or extensibility) a configurable reel count, a configurable panel count per-reel, and breaking currency tracking out into a bank object.</p>
 					<p>You could also take a state-driven approach (as I did in my implementation) which would remove the need for spinning start and getter methods as these will naturally start & return true respectively based on the game state. I chose to not emphasize a state-driven approach in the UML because it abstracts some of the functionality in ways that aren't obvious in a chart.</p>
 				</section>
 				<section class="column">
 					<h3>Task 2: Slots Game</h3>
 					<a href="./mahi/slots/index.html" target="_blank">Click to play slots!</a>
-					<p>To run the slots, pull the lever on the right. A spin round will run automatically, and you can pull the lever to play again once it ends.</p>
-					<p>Behind the scenes, the game uses a state-driven pattern for determining game state and available actions. I went with a simplistic art style, with the three images on the reel panels themed with ocean iconography - a squid, lobster, and scallop shell. I chose this theme as lobsters and squids both happen to relate to a common reference/inside joke amongst my friend group. The scallop shell is just to fill the ocean trio out.</p>
+					<p>To run the slots, click anywhere on the screen. A round will run automatically, and you can pull the lever (click anywhere) to play again once it ends.</p>
+					<p>Behind the scenes, the game uses a state-driven pattern for determining game state and available actions. I went with a simplistic art style, with the three images on the reel panels themed with ocean iconography - a squid, lobster, and scallop shell. I chose this theme because lobsters and squids both happen to relate to a common reference/inside joke amongst my friend group. The scallop shell is just to fill the ocean trio out. It also felt fitting with Mahi's oceanic/beach thematic :)</p>
 					<p>The currency icon used in both games is a coin with a lion icon on it; lions are my favorite animal and as such are a common symbol or theme I integrate into various random things (e.g. my online handle on some sites references Simba from The Lion King).</p>
 				</section>
 				<section class="column">

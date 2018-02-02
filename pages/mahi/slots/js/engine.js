@@ -43,8 +43,14 @@ game.engine = (function() {
     // Some objects need the canvas set for drawing in their inits
     canvas = document.querySelector('.main-canvas');
     ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    if (window.innerWidth > window.innerHeight) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    else {
+      canvas.height = window.innerWidth;
+      canvas.width = window.innerHeight;
+    }
 
     // Registers event listeners for canvas interaction events (i.e. clicks)
     registerEventListeners();
@@ -97,7 +103,7 @@ game.engine = (function() {
 
 	// Play a sound effect at the specified volume.
 	function playStream(source, vol) {
-		var audioPlayer = new Audio('../' + source);
+		var audioPlayer = new Audio('sounds/' + source);
 		audioPlayer.volume = vol;
 		audioPlayer.play();
 	}

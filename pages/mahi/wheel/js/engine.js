@@ -97,7 +97,7 @@ game.engine = (function() {
 
 	// Play a sound effect at the specified volume.
 	function playStream(source, vol) {
-		var audioPlayer = new Audio('../' + source);
+		var audioPlayer = new Audio('sounds/' + source);
 		audioPlayer.volume = vol;
 		audioPlayer.play();
 	}
