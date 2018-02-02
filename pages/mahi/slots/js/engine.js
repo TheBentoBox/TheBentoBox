@@ -44,8 +44,8 @@ game.engine = (function() {
     canvas = document.querySelector('.main-canvas');
     ctx = canvas.getContext('2d');
     if (window.innerWidth > window.innerHeight) {
-      canvas.width = window.outerWidth;
-      canvas.height = window.outerHeight;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
     else {
       canvas.height = window.innerWidth;
