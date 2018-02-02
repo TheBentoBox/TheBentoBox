@@ -46,20 +46,21 @@
 				<section class="column">
 					<h3>Task 1: Slots UML</h3>
 					<img src="../media/slotsUML.png" width="100%">
+					<a href="https://i.gyazo.com/a88f80df4b8f63dc657b803984bad963.png" target="_blank">Full size image</a>
 					<p>A very basic slots game requires three parts: the reels which have capacity to spin, a slot machine which contains reels and determines its spin state based on its reels, and an engine to drive everything.</p>
 					<p>Other possibilities for fields (depending on intended complexity or extensibility) could include a configurable reel count, a configurable panel count per-reel, breaking currency tracking out into a bank object.</p>
 					<p>You could also take a state-driven approach (as I did in my implementation) which would remove the need for spinning start and getter methods as these will naturally start & return true respectively based on the game state. I chose to not emphasize a state-driven approach in the UML because it abstracts some of the functionality in ways that aren't obvious in a chart.</p>
 				</section>
 				<section class="column">
 					<h3>Task 2: Slots Game</h3>
-					<a href="slots/index.html" target="_blank">Click to play slots!</a>
+					<a href="./mahi/slots/index.html" target="_blank">Click to play slots!</a>
 					<p>To run the slots, pull the lever on the right. A spin round will run automatically, and you can pull the lever to play again once it ends.</p>
 					<p>Behind the scenes, the game uses a state-driven pattern for determining game state and available actions. I went with a simplistic art style, with the three images on the reel panels themed with ocean iconography - a squid, lobster, and scallop shell. I chose this theme as lobsters and squids both happen to relate to a common reference/inside joke amongst my friend group. The scallop shell is just to fill the ocean trio out.</p>
 					<p>The currency icon used in both games is a coin with a lion icon on it; lions are my favorite animal and as such are a common symbol or theme I integrate into various random things (e.g. my online handle on some sites references Simba from The Lion King).</p>
 				</section>
 				<section class="column">
 					<h3>Task 3: "Wheel of Wealth" Game</h3>
-					<a href="wheel/index.html" target="_blank">Click to spin the wheel!</a>
+					<a href="./mahi/wheel/index.html" target="_blank">Click to spin the wheel!</a>
 					<p>To spin the wheel, simple click on it. You can click the dice icon on the top right to go into 'rigging mode', allowing you to click on a slice of the wheel which it will foricbly land on for all future spins until the wheel is unrigged.</p>
 					<p>This uses the same pattern as the slots game, with a state-based implementation for controlling game flow. I find state systems to be clean, extensible, and less prone to bugs than other patterns.</p>
 				</section>
