@@ -1,0 +1,215 @@
+{
+    "assets": {
+        "assets/images/businessBackplate.png": "sprite",
+        "assets/images/managerBackplate.png": "sprite",
+        "assets/images/progressArrowEmpty.png": "sprite",
+        "assets/images/progressArrowFilled.png": "sprite",
+        "assets/images/buyButton.png": "sprite",
+        "assets/images/timerArea.png": "sprite",
+        "assets/images/lime.png": "sprite",
+        "assets/images/magazine.png": "sprite",
+        "assets/images/soap.png": "sprite",
+        "assets/images/spaghetti.png": "sprite",
+        "assets/images/muffin.png": "sprite",
+        "assets/images/crab.png": "sprite",
+        "assets/images/lacrosse.png": "sprite",
+        "assets/images/music.png": "sprite",
+        "assets/images/jails.png": "sprite",
+        "assets/images/diamonds.png": "sprite"
+    },
+    "renderer": {
+        "backgroundColor": "0x6da4d1"
+    },
+    "gameData": {
+        "baseBusinessData": {
+            "backSprites": [
+                {
+                    "name": "backplateSprite",
+                    "assetName": "businessBackplate.png",
+                    "transform": {
+                        "position": {
+                            "x": -15,
+                            "y": -15
+                        }
+                    }
+                },
+                {
+                    "name": "progressBarBack",
+                    "assetName": "progressArrowEmpty.png",
+                    "transform": {
+                        "position": {
+                            "x": 150,
+                            "y": -15
+                        }
+                    }
+                },
+                {
+                    "name": "timerArea",
+                    "assetName": "timerArea.png",
+                    "transform": {
+                        "position": {
+                            "x": 305,
+                            "y": 85
+                        }
+                    }
+                },
+                {
+                    "name": "progressBar",
+                    "assetName": "progressArrowFilled.png",
+                    "transform": {
+                        "position": {
+                            "x": 150,
+                            "y": -15
+                        }
+                    }
+                }
+            ],
+            "buyButton": {
+                "background": {
+                    "name": "buyButtonBackground",
+                    "assetName": "buyButton.png"
+                },
+                "labels": [
+                    {
+                        "name": "buyLabel",
+                        "text": "Buy x",
+                        "transform": {
+                            "position": {
+                                "x": 10,
+                                "y": 6
+                            }
+                        },
+                        "style": {
+                            "fill": "0xFFFFFF"
+                        }
+                    },
+                    {
+                        "name": "amountLabel",
+                        "text": "1",
+                        "transform": {
+                            "position": {
+                                "x": 75,
+                                "y": 6
+                            }
+                        },
+                        "style": {
+                            "fill": "0xFFFFFF"
+                        }
+                    },
+                    {
+                        "name": "priceLabel",
+                        "text": "0",
+                        "format": "currency",
+                        "transform": {
+                            "position": {
+                                "x": 10,
+                                "y": 36
+                            }
+                        },
+                        "maxSize": {
+                            "x": 140
+                        },
+                        "style": {
+                            "fill": "0xFFFFFF"
+                        }
+                    }
+                ],
+                "transform": {
+                    "position": {
+                        "x": 142,
+                        "y": 85
+                    }
+                }
+            }
+        },
+        "baseManagerButtonData": {
+            "background": {
+                "name": "buyManagerButtonBackground",
+                "assetName": "managerBackplate.png"
+            }
+        },
+        "businesses": [
+            {
+                "name": "Limeade Stands",
+                "icon": "lime.png",
+                "initialAmountOwned": 1,
+                "baseCost": 4,
+                "baseProfit": 1,
+                "baseCycleDuration": 1,
+                "managerCost": 1000
+            },
+            {
+                "name": "Magazine Subscriptions",
+                "icon": "magazine.png",
+                "baseCost": 60,
+                "baseProfit": 60,
+                "baseCycleDuration": 4,
+                "managerCost": 15000
+            },
+            {
+                "name": "Car Showers",
+                "icon": "soap.png",
+                "baseCost": 720,
+                "baseProfit": 540,
+                "baseCycleDuration": 7,
+                "managerCost": 100000
+            },
+            {
+                "name": "Spaghetti Deliveries",
+                "icon": "spaghetti.png",
+                "baseCost": 8640,
+                "baseProfit": 4320,
+                "baseCycleDuration": 12,
+                "managerCost": 500000
+            },
+            {
+                "name": "Muffin Shops",
+                "icon": "muffin.png",
+                "baseCost": 103680,
+                "baseProfit": 51840,
+                "baseCycleDuration": 24,
+                "managerCost": 1200000
+            },
+            {
+                "name": "Crab Boats",
+                "icon": "crab.png",
+                "baseCost": 1244160,
+                "baseProfit": 622080,
+                "baseCycleDuration": 96,
+                "managerCost": 10000000
+            },
+            {
+                "name": "Lacrosse Teams",
+                "icon": "lacrosse.png",
+                "baseCost": 14929920,
+                "baseProfit": 7464960,
+                "baseCycleDuration": 384,
+                "managerCost": 111111111
+            },
+            {
+                "name": "Music Studios",
+                "icon": "music.png",
+                "baseCost": 179159040,
+                "baseProfit": 89579520,
+                "baseCycleDuration": 1536,
+                "managerCost": 555555555
+            },
+            {
+                "name": "Prisons",
+                "icon": "jails.png",
+                "baseCost": 2149908480,
+                "baseProfit": 1074954240,
+                "baseCycleDuration": 6144,
+                "managerCost": 10000000000
+            },
+            {
+                "name": "Diamond Mines",
+                "icon": "diamonds.png",
+                "baseCost": 25798901760,
+                "baseProfit": 12899450880,
+                "baseCycleDuration": 36864,
+                "managerCost": 100000000000
+            }
+        ]
+    }
+}
