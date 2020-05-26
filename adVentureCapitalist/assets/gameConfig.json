@@ -1,4 +1,5 @@
 {
+    "gameName": "AdVenture Capitalist",
     "assets": {
         "assets/images/businessBackplate.png": "sprite",
         "assets/images/managerBackplate.png": "sprite",
@@ -132,7 +133,7 @@
             {
                 "name": "Limeade Stands",
                 "icon": "lime.png",
-                "initialAmountOwned": 1,
+                "initialUnitsOwned": 1,
                 "baseCost": 4,
                 "baseProfit": 1,
                 "baseCycleDuration": 1,
